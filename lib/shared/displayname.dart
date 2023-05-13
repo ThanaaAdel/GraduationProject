@@ -39,11 +39,16 @@ class _DisplayNameState extends State<DisplayName> {
           snapshot.data!.data() as Map<String, dynamic>;
 
           // ${data['title']}
-          return  Text(
-            "${data['username']}",
-            style: TextStyle(
-              fontSize: 33,
-            ),
+          return  Column(
+            children: [
+              SizedBox(height: 20,),
+              Text(
+                "${data['username']}",
+                style: TextStyle(
+                  fontSize: 25,
+                ),
+              ),
+            ],
           );
 
         }

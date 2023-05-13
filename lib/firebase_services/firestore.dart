@@ -9,7 +9,8 @@ import 'package:uuid/uuid.dart';
 
 class FirestoreMethods {
   uploadPost(
-      {required imgName,
+      {
+        required imgName,
       required imgPath,
       required description,
       required profileImg,
@@ -63,7 +64,8 @@ class FirestoreMethods {
 }
 
   uploadComment(
-      {required commentText,
+      {
+        required commentText,
         required postId,
         required profileImg,
         required username,
@@ -105,10 +107,114 @@ class FirestoreMethods {
         });
       }
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
     }
   }
+  uploadeventPost(
+      {required imgName,
+        required imgPath,
+        required description,
+        required profileImg,
+        required username,
+        required context}) async {
+    String message = "ERROR => Not starting the code";
+
+    try {
+// ______________________________________________________________________
+
+      String urlll = await getImgURL(
+          imgName: imgName,
+          imgPath: imgPath,
+          folderName: 'imgPosts/${FirebaseAuth.instance.currentUser!.uid}');
+
+// _______________________________________________________________________
+// firebase firestore (Database)
+      CollectionReference posts =
+      FirebaseFirestore.instance.collection('postevent');
+
+      String newId = const Uuid().v1();
+
+      PostData postt = PostData(
+          datePublished: DateTime.now(),
+          description: description,
+          imgPost: urlll,
+          likes: [],
+          profileImg: profileImg,
+          postId: newId,
+          uid: FirebaseAuth.instance.currentUser!.uid,
+          username: username);
+
+      posts
+          .doc(
+        newId,
+
+      )
+          .set(postt.convert2Map())
+          .then((value) => showSnackBar(context, "doneeeee"))
+          .catchError((error) => showSnackBar(context, "Failed to post: $error"));
+
+      message = " Posted successfully ♥ ♥";
+    } on FirebaseAuthException catch (e) {
+      showSnackBar(context, "ERROR :  ${e.code} ");
+    } catch (e) {
+      showSnackBar(context, "$e");
+    }
+
+    showSnackBar(context, message);
+
+  }
+  uploadgroupPost(
+      {required imgName,
+        required imgPath,
+        required description,
+        required profileImg,
+        required username,
+        required context}) async {
+    String message = "ERROR => Not starting the code";
+
+    try {
+// ______________________________________________________________________
+
+      String urlll = await getImgURL(
+          imgName: imgName,
+          imgPath: imgPath,
+          folderName: 'imgPosts/${FirebaseAuth.instance.currentUser!.uid}');
+
+// _______________________________________________________________________
+// firebase firestore (Database)
+      CollectionReference posts =
+      FirebaseFirestore.instance.collection('postgroup');
+
+      String newId = const Uuid().v1();
+
+      PostData postt = PostData(
+          datePublished: DateTime.now(),
+          description: description,
+          imgPost: urlll,
+          likes: [],
+          profileImg: profileImg,
+          postId: newId,
+          uid: FirebaseAuth.instance.currentUser!.uid,
+          username: username);
+
+      posts
+          .doc(
+        newId,
+
+      )
+          .set(postt.convert2Map())
+          .then((value) => showSnackBar(context, "doneeeee"))
+          .catchError((error) => showSnackBar(context, "Failed to post: $error"));
+
+      message = " Posted successfully ♥ ♥";
+    } on FirebaseAuthException catch (e) {
+      showSnackBar(context, "ERROR :  ${e.code} ");
+    } catch (e) {
+      showSnackBar(context, "$e");
+    }
+
+    showSnackBar(context, message);
+
+  }
+
 }
-
-
-

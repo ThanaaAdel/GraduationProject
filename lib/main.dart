@@ -6,7 +6,8 @@ import 'package:graduationproject/provider/user_provider.dart';
 import 'package:graduationproject/responsive/mobile.dart';
 import 'package:graduationproject/responsive/responsive.dart';
 import 'package:graduationproject/responsive/web.dart';
-import 'package:graduationproject/screens/sign_in.dart';
+import 'package:graduationproject/screens/login_register_profile_pages/splash_screen.dart';
+import 'package:graduationproject/shared/chat_constants.dart';
 import 'package:graduationproject/shared/snakbar.dart';
 import 'package:provider/provider.dart';
 void main() async {
@@ -21,6 +22,18 @@ void main() async {
             messagingSenderId: "724883202315",
             appId: "1:724883202315:web:de71817fa98286a15a420e"
         ));
+  } else {
+    await Firebase.initializeApp();
+  }
+  WidgetsFlutterBinding.ensureInitialized();
+
+  if (kIsWeb) {
+    await Firebase.initializeApp(
+        options: FirebaseOptions(
+            apiKey: Constants.apiKey,
+            appId: Constants.appId,
+            messagingSenderId: Constants.messagingSenderId,
+            projectId: Constants.projectId));
   } else {
     await Firebase.initializeApp();
   }
@@ -54,7 +67,7 @@ class MyApp extends StatelessWidget {
                 myWebScreen: WebScerren(),
               );
             } else {
-              return const Login();
+              return const SplashScreen();
             }
           },
         ),

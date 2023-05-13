@@ -12,13 +12,13 @@ class PostData {
 
   PostData(
       {required this.profileImg,
-        required this.username,
-        required this.description,
-        required this.imgPost,
-        required this.uid,
-        required this.postId,
-        required this.datePublished,
-        required this.likes});
+      required this.username,
+      required this.description,
+      required this.imgPost,
+      required this.uid,
+      required this.postId,
+      required this.datePublished,
+      required this.likes});
 
 // To convert the UserData(Data type) to   Map<String, Object>
   Map<String, dynamic> convert2Map() {
@@ -31,7 +31,6 @@ class PostData {
       "postId": postId,
       "datePublished": datePublished,
       "likes": likes,
-
     };
   }
 
@@ -49,7 +48,8 @@ class PostData {
       postId: snapshot["postId"],
       datePublished: snapshot["datePublished"],
       likes: snapshot["likes"],
-
     );
   }
 }
+
+

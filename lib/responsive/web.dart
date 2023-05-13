@@ -3,12 +3,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:graduationproject/screens/Groups.dart';
+import 'package:graduationproject/screens/goups/all_grades.dart';
 import 'package:graduationproject/shared/colors.dart';
-import 'package:graduationproject/screens/add_post.dart';
-import 'package:graduationproject/screens/home.dart';
-import 'package:graduationproject/screens/profile.dart';
-import 'package:graduationproject/screens/search.dart';
+import 'package:graduationproject/screens/add_posts_in_diffrent_pages/add_post_home.dart';
+import 'package:graduationproject/screens/all_data_from_home/home.dart';
+import 'package:graduationproject/screens/login_register_profile_pages/profile.dart';
+import 'package:graduationproject/screens/all_data_from_home/search.dart';
 
 
 class WebScerren extends StatefulWidget {
@@ -95,8 +95,8 @@ class _WebScerrenState extends State<WebScerren> {
         children: [
           Home(uid: FirebaseAuth.instance.currentUser!.uid,),
           Search(),
-          AddPost(),
-          Groups(),
+          AddPostHome(),
+          Groups(uid: FirebaseAuth.instance.currentUser!.uid),
           Profile(uid: FirebaseAuth.instance.currentUser!.uid),
         ],
       ),

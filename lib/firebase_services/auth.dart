@@ -5,6 +5,7 @@ import 'package:graduationproject/models/users.dart';
 import 'package:graduationproject/shared/snakbar.dart';
 
 
+
 class AuthMethods {
   register({
     required userEmail,
@@ -14,6 +15,8 @@ class AuthMethods {
     required userName,
     required imgName,
     required imgPath,
+    required doctor,
+
 
   }) async {
     String message = "ERROR => Not starting the code";
@@ -45,6 +48,8 @@ class AuthMethods {
         uid: credential.user!.uid,
         followers: [],
         following: [],
+        doctor: doctor
+
       );
 
       users
@@ -71,6 +76,7 @@ class AuthMethods {
     } catch (e) {
       showSnackBar(context, "$e");    }
   }
+
   // functoin to get user details from Firestore (Database)
   Future<UserDate> getUserDetails() async {
     DocumentSnapshot snap = await FirebaseFirestore.instance
@@ -78,5 +84,46 @@ class AuthMethods {
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .get();
     return UserDate.convertSnap2Model(snap);
+  }
+  createGroup(
+      {
+        required emailll,
+        required passworddd,
+        required context,
+        required groupName,
+        required doctorName}) async {
+    String message = "ERROR => Not starting the code";
+
+    try {
+      final credential =
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: emailll,
+        password: passworddd,
+      );
+
+      message = "ERROR => Registered only";
+
+// firebase firestore (Database)
+      CollectionReference informationGroup =
+      FirebaseFirestore.instance.collection('informationGroup');
+      informationGroup
+          .doc(credential.user!.uid)
+          .set({
+        'doctorName': doctorName,
+        'groupName': groupName,
+        "email": emailll,
+        "password": passworddd
+      })
+          .then((value) => print("Group Created"))
+          .catchError((error) => print("Failed to create group: $error"));
+
+
+    } on FirebaseAuthException catch (e) {
+      showSnackBar(context, "ERROR :  ${e.code} ");
+    } catch (e) {
+      print(e);
+    }
+
+    showSnackBar(context, message);
   }
 }

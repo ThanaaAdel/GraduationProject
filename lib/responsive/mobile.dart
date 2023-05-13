@@ -6,13 +6,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:graduationproject/provider/user_provider.dart';
-import 'package:graduationproject/screens/Events.dart';
-import 'package:graduationproject/screens/Groups.dart';
-import 'package:graduationproject/screens/Question&Answer.dart';
-import 'package:graduationproject/screens/add_post.dart';
-import 'package:graduationproject/screens/home.dart';
-import 'package:graduationproject/screens/profile.dart';
-import 'package:graduationproject/screens/search.dart';
+import 'package:graduationproject/screens/all_data_from_home/Events.dart';
+import 'package:graduationproject/screens/goups/all_grades.dart';
+import 'package:graduationproject/screens/all_data_from_home/home.dart';
+import 'package:graduationproject/screens/login_register_profile_pages/profile.dart';
+import 'package:graduationproject/screens/all_data_from_home/search.dart';
 import 'package:graduationproject/shared/colors.dart';
 import 'package:provider/provider.dart';
 
@@ -66,21 +64,22 @@ class _MobileScerrenState extends State<MobileScerren> {
                   color: currentPage == 0 ? primaryColor : secondaryColor,
                 ),
                 label: ""),
+
             BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.question_answer,
+                  Icons.event,
                   color: currentPage == 1 ? primaryColor : secondaryColor,
                 ),
                 label: ""),
             BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.event,
+                  Icons.groups,
                   color: currentPage == 2 ? primaryColor : secondaryColor,
                 ),
                 label: ""),
             BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.groups,
+                  Icons.search,
                   color: currentPage == 3 ? primaryColor : secondaryColor,
                 ),
                 label: ""),
@@ -99,9 +98,9 @@ class _MobileScerrenState extends State<MobileScerren> {
         controller: _pageController,
         children: [
           Home(uid: FirebaseAuth.instance.currentUser!.uid,),
-          QuestionAnswer(),
           Events(),
-          Groups(),
+          Groups(uid: FirebaseAuth.instance.currentUser!.uid,),
+          Search(),
           Profile(uid: FirebaseAuth.instance.currentUser!.uid,),
         ],
       ),

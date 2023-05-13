@@ -13,6 +13,7 @@ class UserDate {
   String uid;
   List followers ;
   List following ;
+ bool doctor;
 
   UserDate({
     required this.email,
@@ -23,6 +24,8 @@ class UserDate {
     required this.uid,
     required this.followers,
     required this.following,
+    required this.doctor,
+
 
 
   });
@@ -38,6 +41,7 @@ class UserDate {
       "uid":uid,
       "followers":[],
       "following":[],
+      "doctor":doctor
     };
   }
 
@@ -55,6 +59,7 @@ class UserDate {
       uid: snapshot["uid"],
       followers: snapshot["followers"],
       following: snapshot["following"],
+      doctor: snapshot["doctor"],
     );
   }
 }

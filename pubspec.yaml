@@ -45,6 +45,20 @@ dependencies:
   uuid: ^3.0.7
   intl: ^0.17.0
   path: ^1.8.2
+  lottie: ^2.3.0
+  flutter_gif: ^0.0.4
+  settings_ui: ^2.0.2
+  app_settings: ^4.2.0
+  share_plus: ^6.3.2
+  videosdk: ^1.0.11
+  http: ^0.13.5
+  flutter_dotenv: ^5.0.2
+  camera: ^0.10.0
+  date_time_format: ^2.0.1
+  touch_ripple_effect: ^2.2.3
+
+
+
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +86,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
