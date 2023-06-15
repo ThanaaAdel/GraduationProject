@@ -8,7 +8,6 @@ import 'package:graduationproject/zoom/widgets/common/participant/participant_li
 import 'package:graduationproject/zoom/widgets/conference-call/conference_participant_grid.dart';
 import 'package:graduationproject/zoom/widgets/conference-call/conference_screenshare_view.dart';
 import 'package:videosdk/videosdk.dart';
-
 import '../../../shared/colors.dart';
 import '../../../utils/toast.dart';
 import '../common/join_screen.dart';

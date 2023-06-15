@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 Future<String> fetchToken(BuildContext context) async {
   if (!dotenv.isInitialized) {
     // Load Environment variables
-    await dotenv.load(fileName: ".env.example");
+    await dotenv.load(fileName: ".env");
   }
   final String? _AUTH_URL = dotenv.env['AUTH_URL'];
   String? _AUTH_TOKEN = dotenv.env['AUTH_TOKEN'];

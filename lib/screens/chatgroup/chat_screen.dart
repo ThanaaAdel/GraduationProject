@@ -1,19 +1,21 @@
 import 'dart:developer';
 import 'dart:io';
 
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:graduationproject/main.dart';
+import 'package:graduationproject/screens/chatgroup/api/apis.dart';
+import 'package:graduationproject/screens/chatgroup/helper/my_date_util.dart';
+import 'package:graduationproject/screens/chatgroup/models/chat_user.dart';
+import 'package:graduationproject/screens/chatgroup/models/message.dart';
+import 'package:graduationproject/screens/chatgroup/widgets/message_card.dart';
+import 'package:graduationproject/screens/login_register_profile_pages/profile.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../api/apis.dart';
-import '../helper/my_date_util.dart';
-import '../main.dart';
-import '../models/chat_user.dart';
-import '../models/message.dart';
-import '../widgets/message_card.dart';
-import 'view_profile_screen.dart';
 
 class ChatScreen extends StatefulWidget {
   final ChatUser user;
@@ -54,6 +56,7 @@ class _ChatScreenState extends State<ChatScreen> {
           child: Scaffold(
             //app bar
             appBar: AppBar(
+              backgroundColor: Colors.blueGrey,
               automaticallyImplyLeading: false,
               flexibleSpace: _appBar(),
             ),
@@ -142,7 +145,7 @@ class _ChatScreenState extends State<ChatScreen> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (_) => ViewProfileScreen(user: widget.user)));
+                  builder: (_) => Profile(uid: FirebaseAuth.instance.currentUser!.uid,)));
         },
         child: StreamBuilder(
             stream: APIs.getUserInfo(widget.user),

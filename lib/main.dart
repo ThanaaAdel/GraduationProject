@@ -10,6 +10,7 @@ import 'package:graduationproject/screens/login_register_profile_pages/splash_sc
 import 'package:graduationproject/shared/chat_constants.dart';
 import 'package:graduationproject/shared/snakbar.dart';
 import 'package:provider/provider.dart';
+late Size mq;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
@@ -33,7 +34,9 @@ void main() async {
             apiKey: Constants.apiKey,
             appId: Constants.appId,
             messagingSenderId: Constants.messagingSenderId,
-            projectId: Constants.projectId));
+            projectId: Constants.projectId
+
+        ));
   } else {
     await Firebase.initializeApp();
   }
@@ -50,7 +53,7 @@ class MyApp extends StatelessWidget {
         },
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData.dark(),
+        theme: ThemeData.light(),
         home: StreamBuilder(
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {

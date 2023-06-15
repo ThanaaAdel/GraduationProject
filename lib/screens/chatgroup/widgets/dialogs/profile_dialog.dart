@@ -1,11 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../main.dart';
+import 'package:graduationproject/main.dart';
+import 'package:graduationproject/screens/login_register_profile_pages/profile.dart';
 import '../../models/chat_user.dart';
-import '../../screens/view_profile_screen.dart';
-
 class ProfileDialog extends StatelessWidget {
   const ProfileDialog({super.key, required this.user});
 
@@ -61,7 +60,7 @@ class ProfileDialog extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (_) => ViewProfileScreen(user: user)));
+                              builder: (_) => Profile(uid: FirebaseAuth.instance.currentUser!.uid,)));
                     },
                     minWidth: 0,
                     padding: const EdgeInsets.all(0),

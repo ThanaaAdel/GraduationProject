@@ -56,8 +56,12 @@ dependencies:
   camera: ^0.10.0
   date_time_format: ^2.0.1
   touch_ripple_effect: ^2.2.3
-
-
+  firebase_messaging: ^14.2.0
+  gallery_saver: ^2.3.2
+  flutter_notification_channel: ^2.0.0
+  emoji_picker_flutter: ^1.5.1
+  cached_network_image: ^3.2.3
+  carousel_slider: ^4.1.1
 
 
 dev_dependencies:
@@ -87,6 +91,7 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/
+    - images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

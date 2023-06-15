@@ -10,6 +10,7 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:typed_data';
 import 'package:path/path.dart' show basename;
 import '../../Responsive/Responsive.dart';
+import '../chatgroup/models/chat_user.dart';
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
 
@@ -132,6 +133,7 @@ class _RegisterState extends State<Register> {
         doctor: doctor,
 
       );
+
       setState(() {
         isLoading = false;
       });

@@ -1,3 +1,8 @@
+import 'package:graduationproject/models/users.dart';
+
+import '../../../firebase_services/auth.dart';
+import '../../login_register_profile_pages/register_information_user.dart';
+
 class ChatUser {
   ChatUser({
     required this.image,
@@ -10,7 +15,7 @@ class ChatUser {
     required this.email,
     required this.pushToken,
   });
-  late String image;
+ late String image ;
   late String about;
   late String name;
   late String createdAt;
@@ -34,7 +39,7 @@ class ChatUser {
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
-    data['image'] = image;
+    data["profileImg"]= image;
     data['about'] = about;
     data['name'] = name;
     data['created_at'] = createdAt;

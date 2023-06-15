@@ -25,7 +25,7 @@ class APIs {
   static late ChatUser me;
 
   // to return current user
- // static User get user => auth.currentUser!;
+  // static User get user => auth.currentUser!;
 
   // for accessing firebase messaging (Push Notification)
   static FirebaseMessaging fMessaging = FirebaseMessaging.instance;
@@ -84,7 +84,8 @@ class APIs {
 
   // for checking if user exists or not?
   static Future<bool> userExists() async {
-    return (await firestore.collection('users').doc( ''/*user.uid*/).get()).exists;
+    return (await firestore.collection('users').doc('' /*user.uid*/).get())
+        .exists;
   }
 
   // for adding an chat user for our conversation
@@ -96,14 +97,14 @@ class APIs {
 
     log('data: ${data.docs}');
 
-    if (data.docs.isNotEmpty && data.docs.first.id !='' /*user.uid*/) {
+    if (data.docs.isNotEmpty && data.docs.first.id != '' /*user.uid*/) {
       //user exists
 
       log('user exists: ${data.docs.first.data()}');
 
       firestore
           .collection('users')
-          .doc(''/*user.uid*/)
+          .doc('' /*user.uid*/)
           .collection('my_users')
           .doc(data.docs.first.id)
           .set({});
@@ -118,7 +119,11 @@ class APIs {
 
   // for getting current user info
   static Future<void> getSelfInfo() async {
-    await firestore.collection('users').doc('1'/*user.uid*/).get().then((user) async {
+    await firestore
+        .collection('users')
+        .doc('1' /*user.uid*/)
+        .get()
+        .then((user) async {
       if (user.exists) {
         me = ChatUser.fromJson(user.data()!);
         await getFirebaseMessagingToken();
@@ -137,14 +142,14 @@ class APIs {
     final time = DateTime.now().millisecondsSinceEpoch.toString();
 
     final chatUser = ChatUser(
-        id:'1' /* user.uid*/,
-        name:'jeje'/* user.displayName.toString()*/,
-        email:'jeje' /*user.email.toString()*/,
+        id: '1' /* user.uid*/,
+        name: 'jeje' /* user.displayName.toString()*/,
+        email: 'jeje' /*user.email.toString()*/,
         about: "Hey, I'm using We Chat!",
-        image:'' /*user.photoURL.toString()*/,
-        createdAt:'3:00' /* time*/,
+        image: '' /*user.photoURL.toString()*/,
+        createdAt: '3:00' /* time*/,
         isOnline: false,
-        lastActive: '4:00'/*time*/,
+        lastActive: '4:00' /*time*/,
         pushToken: '');
 
     return await firestore
@@ -157,7 +162,7 @@ class APIs {
   static Stream<QuerySnapshot<Map<String, dynamic>>> getMyUsersId() {
     return firestore
         .collection('users')
-        .doc('1'/*user.uid*/)
+        .doc('1' /*user.uid*/)
         .collection('my_users')
         .snapshots();
   }
@@ -184,13 +189,13 @@ class APIs {
         .collection('users')
         .doc(chatUser.id)
         .collection('my_users')
-        .doc('1'/*user.uid*/)
+        .doc('1' /*user.uid*/)
         .set({}).then((value) => sendMessage(chatUser, msg, type));
   }
 
   // for updating user information
   static Future<void> updateUserInfo() async {
-    await firestore.collection('users').doc(""/*user.uid*/).update({
+    await firestore.collection('users').doc("" /*user.uid*/).update({
       'name': me.name,
       'about': me.about,
     });
@@ -203,7 +208,7 @@ class APIs {
     log('Extension: $ext');
 
     //storage file ref with path
-    final ref = storage.ref().child('profile_pictures/');/*${user.uid}.$ext*/
+    final ref = storage.ref().child('profile_pictures/'); /*${user.uid}.$ext*/
 
     //uploading image
     await ref
@@ -216,7 +221,7 @@ class APIs {
     me.image = await ref.getDownloadURL();
     await firestore
         .collection('users')
-        .doc(/*user.uid*/'1')
+        .doc(/*user.uid*/ '1')
         .update({'image': me.image});
   }
 
@@ -231,7 +236,7 @@ class APIs {
 
   // update online or last active status of user
   static Future<void> updateActiveStatus(bool isOnline) async {
-    firestore.collection('users').doc(/*user.uid*/'1').update({
+    firestore.collection('users').doc(/*user.uid*/ '1').update({
       'is_online': isOnline,
       'last_active': DateTime.now().millisecondsSinceEpoch.toString(),
       'push_token': me.pushToken,
@@ -251,7 +256,7 @@ class APIs {
   static Stream<QuerySnapshot<Map<String, dynamic>>> getAllMessages(
       ChatUser user) {
     return firestore
-        .collection('chats/messages/')/*${getConversationID(user.id)}*/
+        .collection('chats/messages/') /*${getConversationID(user.id)}*/
         .orderBy('sent', descending: true)
         .snapshots();
   }
@@ -268,11 +273,11 @@ class APIs {
         msg: msg,
         read: '',
         type: type,
-        fromId: ''/*user.uid*/,
+        fromId: '' /*user.uid*/,
         sent: time);
 
-    final ref = firestore 
-        .collection('chats/messages/');/*${getConversationID(chatUser.id)}*/
+    final ref = firestore
+        .collection('chats/messages/'); /*${getConversationID(chatUser.id)}*/
     await ref.doc(time).set(message.toJson()).then((value) =>
         sendPushNotification(chatUser, type == Type.text ? msg : 'image'));
   }
@@ -280,7 +285,7 @@ class APIs {
   //update read status of message
   static Future<void> updateMessageReadStatus(Message message) async {
     firestore
-        .collection('chats/messages/')/*${getConversationID(message.fromId)}*/
+        .collection('chats/messages/') /*${getConversationID(message.fromId)}*/
         .doc(message.sent)
         .update({'read': DateTime.now().millisecondsSinceEpoch.toString()});
   }
@@ -289,7 +294,7 @@ class APIs {
   static Stream<QuerySnapshot<Map<String, dynamic>>> getLastMessage(
       ChatUser user) {
     return firestore
-        .collection('chats/messages/')/*${getConversationID(user.id)}*/
+        .collection('chats/messages/') /*${getConversationID(user.id)}*/
         .orderBy('sent', descending: true)
         .limit(1)
         .snapshots();
@@ -302,7 +307,7 @@ class APIs {
 
     //storage file ref with path
     final ref = storage.ref().child(
-        'images/${DateTime.now().millisecondsSinceEpoch}.$ext');/*${getConversationID(chatUser.id)}*/
+        'images/${DateTime.now().millisecondsSinceEpoch}.$ext'); /*${getConversationID(chatUser.id)}*/
 
     //uploading image
     await ref
@@ -319,7 +324,7 @@ class APIs {
   //delete message
   static Future<void> deleteMessage(Message message) async {
     await firestore
-        .collection('chats/messages/')/*${getConversationID(message.toId)}*/
+        .collection('chats/messages/') /*${getConversationID(message.toId)}*/
         .doc(message.sent)
         .delete();
 
@@ -331,7 +336,7 @@ class APIs {
   //update message
   static Future<void> updateMessage(Message message, String updatedMsg) async {
     await firestore
-        .collection('chats/messages/')/*${getConversationID(message.toId)}*/
+        .collection('chats/messages/') /*${getConversationID(message.toId)}*/
         .doc(message.sent)
         .update({'msg': updatedMsg});
   }

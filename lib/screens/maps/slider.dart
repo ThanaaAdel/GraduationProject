@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart';
 
 class CarouselClass extends StatefulWidget {
   const CarouselClass({Key? key}) : super(key: key);
@@ -90,3 +91,40 @@ class _CarouselClassState extends State<CarouselClass> {
     );
   }
 }
+
+class Maps extends StatefulWidget {
+  const Maps({super.key});
+
+  @override
+  State<Maps> createState() => _MapsState();
+}
+
+class _MapsState extends State<Maps> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.blueGrey,
+        body:Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(onPressed: (){
+                  var route = MaterialPageRoute(
+                      builder: (context) => CarouselClass());
+                  Navigator.push(context, route);
+
+                },
+                    child: Text('Maps for building' ,style: TextStyle(fontSize: 20, color: Colors.white),)),
+
+              ],
+            ),
+
+          ],
+        )
+
+    );
+  }
+}
+

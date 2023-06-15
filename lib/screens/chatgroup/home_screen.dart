@@ -1,15 +1,15 @@
 import 'dart:developer';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import '../api/apis.dart';
-import '../helper/dialogs.dart';
-import '../main.dart';
-import '../models/chat_user.dart';
-import '../widgets/chat_user_card.dart';
-import 'profile_screen.dart';
+import 'package:graduationproject/main.dart';
+import 'package:graduationproject/screens/chatgroup/api/apis.dart';
+import 'package:graduationproject/screens/chatgroup/helper/dialogs.dart';
+import 'package:graduationproject/screens/chatgroup/models/chat_user.dart';
+import 'package:graduationproject/screens/chatgroup/widgets/chat_user_card.dart';
+import 'package:graduationproject/screens/login_register_profile_pages/profile.dart';
 
 //home screen -- where all available contacts are shown
 class HomeScreen extends StatefulWidget {
@@ -73,6 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Scaffold(
           //app bar
           appBar: AppBar(
+            backgroundColor: Colors.blueGrey,
             leading: const Icon(CupertinoIcons.home),
             title: _isSearching
                 ? TextField(
@@ -115,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (_) => ProfileScreen(user: APIs.me)));
+                            builder: (_) => Profile(uid: FirebaseAuth.instance.currentUser!.uid,)));
                   },
                   icon: const Icon(Icons.more_vert))
             ],
@@ -125,6 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
           floatingActionButton: Padding(
             padding: const EdgeInsets.only(bottom: 10),
             child: FloatingActionButton(
+            backgroundColor: Colors.blueGrey,
                 onPressed: () {
                   _addChatUserDialog();
                 },

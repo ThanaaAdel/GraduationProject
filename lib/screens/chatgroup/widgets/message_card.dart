@@ -4,11 +4,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gallery_saver/gallery_saver.dart';
+import 'package:graduationproject/main.dart';
+import 'package:graduationproject/screens/chatgroup/helper/dialogs.dart';
+import 'package:graduationproject/screens/chatgroup/helper/my_date_util.dart';
 
 import '../api/apis.dart';
-import '../helper/dialogs.dart';
-import '../helper/my_date_util.dart';
-import '../main.dart';
 import '../models/message.dart';
 
 // for showing single message details

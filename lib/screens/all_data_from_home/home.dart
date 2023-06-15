@@ -1,12 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:graduationproject/screens/chat/all_chats.dart';
-import 'package:graduationproject/screens/goups/all_grades.dart';
+import 'package:graduationproject/gpa/gpa_screen.dart';
+import 'package:graduationproject/screens/chatgroup/home_screen.dart';
 import 'package:graduationproject/screens/chat/Notifications.dart';
+import 'package:graduationproject/screens/maps/slider.dart';
 import 'package:graduationproject/screens/settings/SettingList.dart';
 import 'package:graduationproject/screens/add_posts_in_diffrent_pages/add_post_home.dart';
 import 'package:graduationproject/screens/login_register_profile_pages/Log_in_information_user.dart';
+import 'package:graduationproject/screens/zoom/common/join_screen.dart';
 import 'package:graduationproject/shared/DisplayEmail.dart';
 import 'package:graduationproject/shared/colors.dart';
 import 'package:graduationproject/shared/displayname.dart';
@@ -69,11 +71,11 @@ class _HomeState extends State<Home> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                      builder: (context) => const AddPostHome(),
+                      builder: (context) => const JoinScreen(),
                   ),);
-                }, icon: Icon(Icons.video_camera_back_rounded ,color: Colors.white,),),
+                }, icon: const Icon(Icons.video_camera_back_rounded ,color: Colors.white,),),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               CircleAvatar(
@@ -85,7 +87,7 @@ class _HomeState extends State<Home> {
                     MaterialPageRoute(
                       builder: (context) => const AddPostHome(),
                     ),);
-                }, icon: Icon(Icons.add ,color: Colors.white,),),
+                }, icon: const Icon(Icons.add ,color: Colors.white,),),
               )
             ]
         ),
@@ -130,14 +132,13 @@ class _HomeState extends State<Home> {
                             subject: 'Regulation');
                       }),
                   ListTile(
-                      title: const Text("My groups"),
-                      leading: const Icon(Icons.group),
+                      title: const Text("Maps"),
+                      leading: const Icon(Icons.maps_ugc_sharp),
                       onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Groups(
-                                uid: FirebaseAuth.instance.currentUser!.uid),
+                            builder: (context) =>CarouselClass(),
                           ),
                         );
                       }),
@@ -149,6 +150,17 @@ class _HomeState extends State<Home> {
                           context,
                           MaterialPageRoute(
                             builder: (context) => const SettingList(),
+                          ),
+                        );
+                      }),
+                  ListTile(
+                      title: const Text("Calc gpa"),
+                      leading: const Icon(Icons.calculate),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const GPACalc(),
                           ),
                         );
                       }),
@@ -199,7 +211,7 @@ class _HomeState extends State<Home> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Chat(),
+                          builder: (context) => const HomeScreen(),
                         ),
                       );
                     },
