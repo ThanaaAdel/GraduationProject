@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:graduationproject/models/Items/items_of_grade2.dart';
 import 'package:graduationproject/screens/add_posts_in_diffrent_pages/add_post_group.dart';
 import 'package:graduationproject/screens/posts/information_of_event_post.dart';
-import 'package:graduationproject/screens/posts/information_of_group_post.dart';
-import 'package:graduationproject/screens/posts/information_of_home_post.dart';
 class AllGroupsOfGrade2 extends StatefulWidget {
   ItemsGrade2 itemsGrade2 ;
   AllGroupsOfGrade2({super.key,required this.itemsGrade2});
@@ -153,7 +151,6 @@ class _AllGroupsOfGrade2State extends State<AllGroupsOfGrade2> {
                     Map<String, dynamic> data =
                     document.data()! as Map<String, dynamic>;
                     return InformationOfEventPost(dataFromDB: data);
-
                   }).toList(),
                 );
               },

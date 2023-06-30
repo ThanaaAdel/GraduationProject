@@ -5,11 +5,11 @@ import 'dart:developer';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:graduationproject/screens/zoom/utils/api.dart';
+import 'package:graduationproject/screens/zoom/utils/spacer.dart';
+import 'package:graduationproject/screens/zoom/utils/toast.dart';
 import 'package:graduationproject/zoom/widgets/common/joining_details/joining_details.dart';
 import '../../../shared/colors.dart';
-import '../../../utils/api.dart';
-import '../../../utils/spacer.dart';
-import '../../../utils/toast.dart';
 import '../conference-call/conference_meeting_screen.dart';
 import '../one-to-one/one_to_one_meeting_screen.dart';
 

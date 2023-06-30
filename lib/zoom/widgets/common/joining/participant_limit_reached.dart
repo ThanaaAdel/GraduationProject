@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:graduationproject/shared/colors.dart';
-import 'package:graduationproject/utils/spacer.dart';
 import 'package:videosdk/videosdk.dart';
+
+import '../../../../screens/zoom/utils/spacer.dart';
 
 
 class ParticipantLimitReached extends StatelessWidget {

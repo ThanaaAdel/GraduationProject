@@ -4,7 +4,6 @@ import 'package:graduationproject/models/Items/items_of_grade1.dart';
 import 'package:graduationproject/provider/user_provider.dart';
 import 'package:graduationproject/screens/add_posts_in_diffrent_pages/add_post_group.dart';
 import 'package:graduationproject/screens/posts/information_of_group_post.dart';
-import 'package:graduationproject/screens/posts/information_of_home_post.dart';
 import 'package:provider/provider.dart';
 class AllGroupsOfGrade1 extends StatefulWidget {
   ItemsGrade1 itemsGrade1 ;

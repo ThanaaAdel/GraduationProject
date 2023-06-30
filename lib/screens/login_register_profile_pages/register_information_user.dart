@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:graduationproject/firebase_services/auth.dart';
 import 'package:graduationproject/responsive/mobile.dart';
 import 'package:graduationproject/responsive/web.dart';
-import 'package:graduationproject/screens/login_register_profile_pages/Forget_Password.dart';
 import 'package:graduationproject/screens/login_register_profile_pages/Log_in_information_user.dart';
 import 'package:graduationproject/shared/snakbar.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:typed_data';
 import 'package:path/path.dart' show basename;
 import '../../Responsive/Responsive.dart';
-import '../chatgroup/models/chat_user.dart';
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
 
@@ -223,6 +221,7 @@ class _RegisterState extends State<Register> {
                     height: 20,
                   ),
                   TextFormField(
+
                     onTap: () {},
                     validator: (String? value) {
                       if (value!.isEmpty == true) {
@@ -239,6 +238,7 @@ class _RegisterState extends State<Register> {
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Your Name',
+                        labelStyle: TextStyle(color: Colors.white),
                         prefixIcon: Icon(Icons.person)),
                   ),
                   const SizedBox(
@@ -258,6 +258,7 @@ class _RegisterState extends State<Register> {
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Your class',
+                        labelStyle: TextStyle(color: Colors.white),
                         prefixIcon: Icon(Icons.title)),
                   ),
                   const SizedBox(
@@ -281,6 +282,7 @@ class _RegisterState extends State<Register> {
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Your Email',
+                        labelStyle: TextStyle(color: Colors.white),
                         prefixIcon: Icon(Icons.email)),
                   ),
                   const SizedBox(
@@ -298,7 +300,11 @@ class _RegisterState extends State<Register> {
                       controller: passwordController,
                       keyboardType: TextInputType.text,
                       obscureText: isVisable ? true : false,
-                      decoration:InputDecoration(
+                      decoration:
+                      InputDecoration(
+                          border: const OutlineInputBorder(),
+                         labelText: "password",
+                          labelStyle: const TextStyle(color: Colors.white),
                           hintText: "Enter Your Password : ",
                           suffixIcon: IconButton(
                               onPressed: () {
@@ -306,6 +312,7 @@ class _RegisterState extends State<Register> {
                                   isVisable = !isVisable;
                                 });
                               },
+
                               icon: isVisable
                                   ? const Icon(Icons.visibility)
                                   : const Icon(Icons.visibility_off)))),
@@ -313,37 +320,13 @@ class _RegisterState extends State<Register> {
                     height: 10,
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text("Do you Forget Password ?",
-                          style: TextStyle(
-                              fontSize: 10, color: Colors.white)),
-                      TextButton(
-                          onPressed: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                  const ForgetPassword()),
-                            );
-                          },
-                          child: const Text('Forget Password',
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  decoration:
-                                  TextDecoration.underline))),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
                     children: [
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(
                             children: [
-                              const Text("Doctor"),
+                              const Text("Doctor",style: TextStyle(fontSize:20,color: Colors.white)),
                               Checkbox(
                                   value: doctor,
                                   onChanged:  (bool? value) {
@@ -358,7 +341,7 @@ class _RegisterState extends State<Register> {
                           ),
                           Row(
                             children: [
-                              const Text("Student"),
+                              const Text("Student",style: TextStyle(fontSize:20,color: Colors.white)),
                               Checkbox(
                                   value: student,
                                   onChanged:  (bool? value) {

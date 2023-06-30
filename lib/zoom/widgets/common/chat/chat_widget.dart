@@ -2,8 +2,9 @@ import 'package:date_time_format/date_time_format.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:graduationproject/shared/colors.dart';
-import 'package:graduationproject/utils/toast.dart';
 import 'package:videosdk/videosdk.dart';
+
+import '../../../../screens/zoom/utils/toast.dart';
 
 
 class ChatWidget extends StatelessWidget {

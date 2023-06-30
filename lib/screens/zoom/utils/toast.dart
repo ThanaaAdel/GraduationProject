@@ -3,9 +3,9 @@ import 'package:graduationproject/shared/colors.dart';
 
 void showSnackBarMessage(
     {required String message,
-    Widget? icon,
-    Color messageColor = black900,
-    required BuildContext context}) {
+      Widget? icon,
+      Color messageColor = black900,
+      required BuildContext context}) {
   ScaffoldMessenger.of(context).removeCurrentSnackBar();
 
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(

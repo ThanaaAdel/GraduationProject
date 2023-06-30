@@ -7,7 +7,6 @@ import 'package:graduationproject/responsive/mobile.dart';
 import 'package:graduationproject/responsive/responsive.dart';
 import 'package:graduationproject/responsive/web.dart';
 import 'package:graduationproject/screens/login_register_profile_pages/splash_screen.dart';
-import 'package:graduationproject/shared/chat_constants.dart';
 import 'package:graduationproject/shared/snakbar.dart';
 import 'package:provider/provider.dart';
 late Size mq;
@@ -28,18 +27,7 @@ void main() async {
   }
   WidgetsFlutterBinding.ensureInitialized();
 
-  if (kIsWeb) {
-    await Firebase.initializeApp(
-        options: FirebaseOptions(
-            apiKey: Constants.apiKey,
-            appId: Constants.appId,
-            messagingSenderId: Constants.messagingSenderId,
-            projectId: Constants.projectId
 
-        ));
-  } else {
-    await Firebase.initializeApp();
-  }
   runApp(const MyApp());
 }
 class MyApp extends StatelessWidget {

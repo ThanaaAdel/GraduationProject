@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:graduationproject/screens/zoom/utils/toast.dart';
 import 'package:graduationproject/zoom/widgets/common/app_bar/meeting_appbar.dart';
 import 'package:graduationproject/zoom/widgets/common/chat/chat_view.dart';
 import 'package:graduationproject/zoom/widgets/common/joining/participant_limit_reached.dart';
@@ -9,10 +10,7 @@ import 'package:graduationproject/zoom/widgets/common/meeting_controls/meeting_a
 import 'package:graduationproject/zoom/widgets/common/participant/participant_list.dart';
 import 'package:graduationproject/zoom/widgets/one-to-one/one_to_one_meeting_container.dart';
 import 'package:videosdk/videosdk.dart';
-
 import '../../../shared/colors.dart';
-import '../../../utils/toast.dart';
-
 import '../common/join_screen.dart';
 // Meeting Screen
 class OneToOneMeetingScreen extends StatefulWidget {

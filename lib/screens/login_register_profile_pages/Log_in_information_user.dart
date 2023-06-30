@@ -17,8 +17,6 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   bool isVisable = false;
-  bool doctor = false;
-  bool student = false;
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   bool isLoading = false;
@@ -116,7 +114,9 @@ class _LoginState extends State<Login> {
                                 // } ,
                                 decoration: const InputDecoration(
                                     border: OutlineInputBorder(),
+                                    labelStyle: TextStyle(color: Colors.white),
                                     labelText: 'Your Email',
+
                                     prefixIcon: Icon(Icons.email)),
                               ),
                               const SizedBox(
@@ -136,6 +136,8 @@ class _LoginState extends State<Login> {
                                 // } ,
                                 decoration: const InputDecoration(
                                   labelText: 'Your Password',
+                                  labelStyle: TextStyle(color: Colors.white),
+                                  border: OutlineInputBorder(),
                                   prefixIcon: Icon(Icons.lock),
                                   suffixIcon: Icon(Icons.remove_red_eye),
                                 ),
@@ -165,40 +167,7 @@ class _LoginState extends State<Login> {
                                               TextDecoration.underline))),
                                 ],
                               ),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              Row(
-                                children: [
-                                  Row(
-                                    children: [
-                                      const Text("Doctor"),
-                                      Checkbox(
-                                          value: doctor,
-                                          onChanged: (bool? value) {
-                                            setState(() {
-                                              doctor = value!;
-                                            });
-                                          }),
-                                    ],
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  Row(
-                                    children: [
-                                      const Text("Student"),
-                                      Checkbox(
-                                          value: student,
-                                          onChanged: (bool? value) {
-                                            setState(() {
-                                              student = value!;
-                                            });
-                                          }),
-                                    ],
-                                  ),
-                                ],
-                              ),
+
                               const SizedBox(
                                 height: 20,
                               ),

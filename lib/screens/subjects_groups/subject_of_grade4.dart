@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:graduationproject/models/Items/items_of_grade4.dart';
 import 'package:graduationproject/provider/user_provider.dart';
 import 'package:graduationproject/screens/goups/details_subjects/details_subject_of_grade4.dart';
-import 'package:graduationproject/screens/goups/group_information.dart';
 import 'package:graduationproject/screens/all_data_from_home/search.dart';
 import 'package:graduationproject/screens/goups/your_groups/your_groups.dart';
 import 'package:provider/provider.dart';
@@ -102,49 +101,6 @@ body:  Padding(
           GridTile(
           footer: GridTileBar(
             backgroundColor: const Color.fromARGB(182, 0, 0, 0),
-            trailing:
-
-            IconButton(
-                onPressed: () {
-                  Dialog(
-                    backgroundColor: Colors.blueGrey,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25)),
-                    child: Container(
-                      padding: const EdgeInsets.all(10),
-                      margin: const EdgeInsets.all(10),
-                      height: 200,
-                      child: Column(
-                        //  mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Text( "Do You Want To Create Group In Grade 2",style: TextStyle(fontSize: 22),),
-                            const SizedBox(
-                              height: 22,
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const GroupInformation()),
-                                );
-                              },
-                              child: const Text("yes",
-                                  style: TextStyle(fontSize: 22,color: Colors.white)),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              child: const Text("no",
-                                  style: TextStyle(fontSize: 22,color: Colors.white)),
-                            ),
-                          ]),
-                    ),
-                  );
-                },
-                icon: const Icon(Icons.more_vert,color:Colors.white,)),
-
             title: Text(
               subjectsOfGrade4[index].subjectName,
               style: const TextStyle(fontSize: 20, color: Colors.white,fontFamily: "myfont"),

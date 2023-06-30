@@ -1,9 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:graduationproject/gpa/gpa_screen.dart';
-import 'package:graduationproject/screens/chatgroup/home_screen.dart';
-import 'package:graduationproject/screens/chat/Notifications.dart';
 import 'package:graduationproject/screens/maps/slider.dart';
 import 'package:graduationproject/screens/settings/SettingList.dart';
 import 'package:graduationproject/screens/add_posts_in_diffrent_pages/add_post_home.dart';
@@ -14,7 +11,7 @@ import 'package:graduationproject/shared/colors.dart';
 import 'package:graduationproject/shared/displayname.dart';
 import 'package:graduationproject/screens/posts/information_of_home_post.dart';
 import 'package:share_plus/share_plus.dart';
-
+import '../gpa/gpa_screen.dart';
 class Home extends StatefulWidget {
   final String uid;
   const Home({Key? key, required this.uid}) : super(key: key);
@@ -138,7 +135,7 @@ class _HomeState extends State<Home> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>CarouselClass(),
+                            builder: (context) =>const CarouselClass(),
                           ),
                         );
                       }),
@@ -192,28 +189,28 @@ class _HomeState extends State<Home> {
             : AppBar(
                 backgroundColor: appbarbluegray,
                 actions: [
+                  // IconButton(
+                  //   onPressed: () {
+                  //     Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(
+                  //         builder: (context) => const Notifications(),
+                  //       ),
+                  //     );
+                  //   },
+                  //   icon: const Icon(Icons.notifications),
+                  // ),
+                  // const SizedBox(
+                  //   width: 5,
+                  // ),
                   IconButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Notifications(),
-                        ),
-                      );
-                    },
-                    icon: const Icon(Icons.notifications),
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const HomeScreen(),
-                        ),
-                      );
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => const HomeScreen(), //حطي هنا صفحة الهوم بتاع الشات
+                      //   ),
+                      // );
                     },
                     icon: const Icon(Icons.message),
                   ),

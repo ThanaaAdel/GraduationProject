@@ -3,12 +3,12 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
+import 'package:graduationproject/screens/zoom/utils/spacer.dart';
 import 'package:graduationproject/shared/colors.dart';
-import 'package:graduationproject/utils/api.dart';
-import 'package:graduationproject/utils/spacer.dart';
-import 'package:graduationproject/utils/toast.dart';
 import 'package:graduationproject/zoom/widgets/common/app_bar/recording_indicator.dart';
 import 'package:videosdk/videosdk.dart';
+import '../../../../screens/zoom/utils/api.dart';
+import '../../../../screens/zoom/utils/toast.dart';
 
 class MeetingAppBar extends StatefulWidget {
   final String token;

@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:graduationproject/shared/colors.dart';
-import 'package:graduationproject/utils/spacer.dart';
 import 'package:videosdk/videosdk.dart';
-
+import '../../../screens/zoom/utils/spacer.dart';
 import '../common/stats/call_stats.dart';
-
-
 class ParticipantView extends StatelessWidget {
   final Stream? stream;
   final bool isMicOn;

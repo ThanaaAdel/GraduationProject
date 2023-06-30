@@ -1,10 +1,10 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:graduationproject/shared/colors.dart';
-import 'package:graduationproject/utils/spacer.dart';
 import 'package:videosdk/videosdk.dart';
+
+import '../../../screens/zoom/utils/spacer.dart';
 class ConferenseScreenShareView extends StatefulWidget {
   final Room meeting;
   const ConferenseScreenShareView({Key? key, required this.meeting})

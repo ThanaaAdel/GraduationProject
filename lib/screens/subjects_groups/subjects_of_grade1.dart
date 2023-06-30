@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graduationproject/models/Items/items_of_grade1.dart';
-import 'package:graduationproject/models/users.dart';
 import 'package:graduationproject/provider/user_provider.dart';
 import 'package:graduationproject/screens/goups/details_subjects/details_subjects_of_grade1.dart';
-import 'package:graduationproject/screens/goups/group_information.dart';
 import 'package:graduationproject/screens/goups/your_groups/your_groups.dart';
 import 'package:provider/provider.dart';
 
@@ -79,85 +77,6 @@ class _SubjectOfGrade1State extends State<SubjectOfGrade1> {
               return GridTile(
                 footer: GridTileBar(
                   backgroundColor: const Color.fromARGB(182, 0, 0, 0),
-                  trailing: IconButton(
-                      onPressed: () => {
-                            userDate["doctor"] != null
-                                ? showDialog(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return Dialog(
-                                        backgroundColor: Colors.blueGrey,
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(25)),
-                                        child: Container(
-                                          padding: const EdgeInsets.all(10),
-                                          margin: const EdgeInsets.all(10),
-                                          height: 200,
-                                          child: Column(children: [
-                                            const Text(
-                                              "Do You Want To Create Group In Grade 1",
-                                              style: TextStyle(fontSize: 22),
-                                            ),
-                                            const SizedBox(
-                                              height: 22,
-                                            ),
-                                            TextButton(
-                                              onPressed: () {
-                                                Navigator.pushReplacement(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          const GroupInformation()),
-                                                );
-                                              },
-                                              child: const Text("yes",
-                                                  style: TextStyle(
-                                                      fontSize: 22,
-                                                      color: Colors.white)),
-                                            ),
-                                            TextButton(
-                                              onPressed: () {
-                                                Navigator.pop(context);
-                                              },
-                                              child: const Text("no",
-                                                  style: TextStyle(
-                                                      fontSize: 22,
-                                                      color: Colors.white)),
-                                            ),
-                                          ]),
-                                        ),
-                                      );
-                                    })
-                                : showDialog(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return Dialog(
-                                        backgroundColor: Colors.blueGrey,
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(25)),
-                                        child: Container(
-                                          padding: const EdgeInsets.all(10),
-                                          margin: const EdgeInsets.all(10),
-                                          height: 100,
-                                          child: Column(children: [
-                                            const Text(
-                                              "you do not have permation ....",
-                                              style: TextStyle(fontSize: 22),
-                                            ),
-                                            const SizedBox(
-                                              height: 22,
-                                            ),
-                                          ]),
-                                        ),
-                                      );
-                                    }),
-                          },
-                      icon: const Icon(
-                        Icons.more_vert,
-                        color: Colors.white,
-                      )),
                   title: Text(
                     subjectsOfGrade1[index].subjectName,
                     style: const TextStyle(

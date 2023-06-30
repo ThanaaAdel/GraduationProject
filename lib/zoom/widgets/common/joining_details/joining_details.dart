@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:graduationproject/shared/colors.dart';
-import 'package:graduationproject/utils/spacer.dart';
-import 'package:graduationproject/utils/toast.dart';
+
+import '../../../../screens/zoom/utils/spacer.dart';
+import '../../../../screens/zoom/utils/toast.dart';
 
 
 class JoiningDetails extends StatefulWidget {
