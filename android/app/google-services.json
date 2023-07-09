@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "848419908938",
-    "project_id": "graduation-project-cefa5",
-    "storage_bucket": "graduation-project-cefa5.appspot.com"
+    "project_number": "1038306186938",
+    "project_id": "fresh-academy",
+    "storage_bucket": "fresh-academy.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:848419908938:android:54ad8f9f36066b9bbe25b3",
+        "mobilesdk_app_id": "1:1038306186938:android:b1523480643fccc4561483",
         "android_client_info": {
           "package_name": "com.example.graduationproject"
         }
       },
       "oauth_client": [
         {
-          "client_id": "848419908938-9eo44e09em7mslv2qraec82gbs0m1grp.apps.googleusercontent.com",
+          "client_id": "1038306186938-shrjtec6pc0c9p81agbifs2tt8govj3s.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAsMhF-GI3IoQZle0PE2VYI8BKgu05CJBQ"
+          "current_key": "AIzaSyB34V3NhrpQcgAXihGxthsvd_OPqfbZZe8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "848419908938-9eo44e09em7mslv2qraec82gbs0m1grp.apps.googleusercontent.com",
+              "client_id": "1038306186938-shrjtec6pc0c9p81agbifs2tt8govj3s.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
